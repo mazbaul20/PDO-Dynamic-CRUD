@@ -7,7 +7,7 @@
         </div>
         <div class="panel panel-danger">
             <div class="panel-heading">
-                <h2>Student List<a class="pull-right" href="addstudent.php">Add Student</a></h2>
+                <h2>Student List<a class="btn btn-success btn-lg pull-right" href="addstudent.php">Add Student</a></h2>
             </div>
         <div class="panel-body">
             <table class="table table-striped">
@@ -53,3 +53,10 @@
 <?php
     include 'inc/footer.php';
 ?>
+
+
+
+
+
+
+<!-- tutorials 13 start -->

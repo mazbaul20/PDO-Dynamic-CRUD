@@ -74,8 +74,26 @@
         }
 
         // Insert data
-        public function insert(){
-
+        public function insert($table, $data){
+            if(!empty($data) && is_array($data)){
+                $keys = '';
+                $value= '';
+                $i = 0;
+                $keys = implode(',', array_keys($data));
+                $values = ":".implode(', :', array_keys($data));
+                $sql = "INSERT INTO ".$table." (".$keys.") VALUES (".$values.")";
+                $query = $this->pdo->prepare($sql);
+                foreach($data as $key => $val){
+                    $query->bindValue(":$key",$val);
+                }
+                $insertdata = $query->execute();
+                if($insertdata){
+                    $lastId = $this->pdo->lastInsertId();
+                    return $lastId;
+                }else{
+                    return false;
+                }
+            }
         }
 
         // Update data

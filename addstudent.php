@@ -6,7 +6,7 @@
 </div>
 <div class="panel panel-danger">
     <div class="panel-heading">
-        <h2>Student List<a class="pull-right" href="addstudent.php">Add Student</a></h2>
+        <h2>Student List<a class="btn btn-success btn-lg pull-right" href="index.php">Back</a></h2>
     </div>
 <div class="panel-body">
             <form action="lib/process_student.php" method="post">
