@@ -52,7 +52,7 @@
                     <td><?php echo $data['phone'] ?></td>
                     <td>
                         <a class="btn btn-primary" href="editstudent.php?id=<?php echo $data['id']; ?>">Edit</a>
-                        <a class="btn btn-danger" href="deletestudent.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Are you sure to delete data?')">Delete</a>
+                        <a class="btn btn-danger" href="lib/process_student.php?action=delete&id=<?php echo $data['id']; ?>" onclick="return confirm('Are you sure to delete data?')">Delete</a>
                     </td>
                 </tr>
                 <?php } }else{ ?>
@@ -63,7 +63,6 @@
 <?php
     include 'inc/footer.php';
 ?>
-
 
 
 

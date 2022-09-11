@@ -51,8 +51,8 @@
             }
             $query->execute();
 
-            if(array_key_exists("return_type",$data)){
-                switch($data['return type']){
+            if(array_key_exists("return_type", $data)){
+                switch($data['return_type']){
                     case 'count':
                         $value = $query->rowCount();
                     break;
@@ -74,7 +74,7 @@
         }
 
         // Insert data
-        public function insert($table, $data){
+        public function insert($table, $data){ 
             if(!empty($data) && is_array($data)){
                 $keys = '';
                 $value= '';
@@ -97,8 +97,43 @@
         }
 
         // Update data
-        public function update(){
+        public function update($table, $data, $cond){
+            if(!empty($data) && is_array($data)){
+                $keyvalue  = '';
+                $whereCond = '';
+                $i         = 0;
+                foreach($data as $key => $val){
+                    $add = ($i > 0)?' , ':'';
+                    $keyvalue .="$add"."$key=:$key";
+                    $i++;
+                }
 
+                if(!empty($cond) && is_array($cond)){
+                    $whereCond .= "WHERE";
+                    $i = 0;
+                    foreach($cond as $key => $val){
+                        $add = ($i > 0)?' AND ':'';
+                        $whereCond .= "$add"."$key=:key";
+                        $i++;
+                    }
+                }
+
+                $sql = "UPDATE ".$table." SET "."WHERE".$keyvalue.$whereCond;
+                $query = $this->pdo->prepare($sql);
+
+                foreach($data as $key => $val){
+                    $query->bindValue(":$key",$val);
+                }
+
+                foreach($cond as $key => $val){
+                    $query->bindValue(":$key",$val);
+                }
+
+                $update = $query->execute();
+                return $update?$query->rowCount():false;
+            }else{
+                return false;
+            }
         }
 
         // Delete data
