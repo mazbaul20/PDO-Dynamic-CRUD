@@ -21,5 +21,8 @@
                 return false;
             }
         }
+        public static function unset(){
+            session_unset();
+        }
     }
 ?>

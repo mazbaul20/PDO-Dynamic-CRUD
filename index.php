@@ -1,4 +1,5 @@
 <?php
+    include 'lib/Session.php';
     include 'inc/header.php';
     include 'lib/Database.php';
 ?>
@@ -6,6 +7,15 @@
             <h2>Student List</h2>
         </div>
         <div class="panel panel-danger">
+
+        <?php
+            Session::init();
+            $msg = Session::get('msg');
+            if(!empty($msg)){
+                echo'<h3 class="alert alert-info text-center">'.$msg.'</h3>';
+                Session::unset();
+            }
+        ?>
             <div class="panel-heading">
                 <h2>Student List<a class="btn btn-success btn-lg pull-right" href="addstudent.php">Add Student</a></h2>
             </div>
@@ -59,4 +69,4 @@
 
 
 
-<!-- tutorials 13 start -->
+<!-- tutorials 14 start -->
