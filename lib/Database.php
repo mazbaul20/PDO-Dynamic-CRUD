@@ -118,7 +118,7 @@
                     }
                 }
 
-                $sql = "UPDATE ".$table." SET "."WHERE".$keyvalue.$whereCond;
+                $sql = "UPDATE ".$table." SET ".$keyvalue.$whereCond;
                 $query = $this->pdo->prepare($sql);
 
                 foreach($data as $key => $val){
@@ -128,14 +128,12 @@
                 foreach($cond as $key => $val){
                     $query->bindValue(":$key",$val);
                 }
-
                 $update = $query->execute();
                 return $update?$query->rowCount():false;
             }else{
                 return false;
             }
         }
-
         // Delete data
         public function delete(){
 

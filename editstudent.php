@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                    <input type="hidden" name="action" value="edit">
                     <input type="submit" class="btn btn-primary" name="submit" value="Update Student">
                 </div> 
             </form>

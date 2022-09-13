@@ -35,11 +35,11 @@
                 $update      = $db->update($table, $studentData, $condition);
                 if($update){
                     $msg = "Data updated Successfully";
-                }else{
+                }else{ 
                     $msg = "Data not updated !";
                 }
-                Session::set('msg',$msg);
-                $home_url = 'index.php';
+                Session::set('msg', $msg);
+                $home_url = '../index.php';
                 header('Location:'.$home_url);
             }
         }
