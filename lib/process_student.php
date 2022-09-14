@@ -35,7 +35,7 @@
                 $update      = $db->update($table, $studentData, $condition);
                 if($update){
                     $msg = "Data updated Successfully";
-                }else{ 
+                }else{
                     $msg = "Data not updated !";
                 }
                 Session::set('msg', $msg);

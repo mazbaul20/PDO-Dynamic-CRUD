@@ -95,7 +95,6 @@
                 }
             }
         }
-
         // Update data
         public function update($table, $data, $cond){
             if(!empty($data) && is_array($data)){
@@ -107,7 +106,6 @@
                     $keyvalue .="$add"."$key=:$key";
                     $i++;
                 }
-
                 if(!empty($cond) && is_array($cond)){
                     $whereCond .= "WHERE";
                     $i = 0;
@@ -117,7 +115,6 @@
                         $i++;
                     }
                 }
-
                 $sql = "UPDATE ".$table." SET ".$keyvalue.$whereCond;
                 $query = $this->pdo->prepare($sql);
 
@@ -132,11 +129,11 @@
                 return $update?$query->rowCount():false;
             }else{
                 return false;
-            }
+            } 
         }
         // Delete data
         public function delete(){
-
+            
         }
     }
 ?>
