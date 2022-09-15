@@ -20,7 +20,6 @@
         );
         $value = $db->select($table, $wherecond);
         if(!empty($value)){
-        
     ?>
     <!-- php code end -->
 

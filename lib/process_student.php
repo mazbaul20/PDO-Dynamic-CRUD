@@ -16,11 +16,27 @@
             if($insert){
                 $msg = "Data Inserted Successfully";
             }else{
-                $msg = "";
+                $msg = "Data not Inserted !";
             }
             Session::set('msg',$msg);
             $home_url = '../index.php';
             header('Location:'.$home_url);
+
+        }elseif($_REQUEST['action'] == 'delete'){
+            $id = $GET['id'];
+            if(!empty($id)){
+                $table = "tbl_student";
+                $condition = array('id' => $id);
+                $delete    = $db->delete($table,$condition);
+                if($update){
+                    $msg = "Data deleted Successfullly";
+                }else{
+                    $msg = "Data not deleted !";
+                }
+            }
+            Session::set('msg', $msg);
+                $home_url = '../index.php';
+                header('Location:'.$home_url);
 
         }elseif($_REQUEST['action'] == 'edit'){
             $id = $_POST['id'];
